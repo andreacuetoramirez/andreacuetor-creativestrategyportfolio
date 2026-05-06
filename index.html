@@ -106,13 +106,13 @@ body.edit-mode .img-cell.drag-over{outline:2px dashed var(--edit-blue);outline-o
 .hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;border-bottom:1px solid #2a2420;}
 .hero-tape{position:absolute;background:var(--gold);opacity:0.8;height:26px;width:110px;top:38px;left:8%;transform:rotate(-3deg);z-index:2;pointer-events:none;}
 .hero-tape::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 7px,rgba(0,0,0,0.08) 7px,rgba(0,0,0,0.08) 8px);}
-.hero-main{display:flex;flex-direction:column;justify-content:center;padding:100px 8% 40px;position:relative;z-index:3;}
+.hero-main{display:flex;flex-direction:column;justify-content:center;padding:60px 7% 28px;position:relative;z-index:3;}
 .hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dust);margin-bottom:24px;}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,12vw,180px);line-height:0.88;letter-spacing:-0.02em;color:var(--paper);}
 .hero-title .italic-line{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(52px,8vw,120px);color:var(--gold);display:block;margin-left:4%;}
 .hero-subtitle{margin-top:32px;max-width:480px;font-size:17px;line-height:1.65;color:var(--dust);font-style:italic;border-left:2px solid var(--rust);padding-left:20px;margin-left:4%;}
-.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;margin-left:4%;}
-.badge{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;border:1px solid #3a3228;color:var(--dust);padding:5px 12px;}
+
+
 .marquee-wrap{border-top:1px solid #2a2420;overflow:hidden;padding:13px 0;background:var(--dim);position:relative;z-index:3;}
 .marquee-track{display:flex;gap:50px;white-space:nowrap;animation:marquee 30s linear infinite;width:max-content;}
 .marquee-track span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dust);}
@@ -120,10 +120,10 @@ body.edit-mode .img-cell.drag-over{outline:2px dashed var(--edit-blue);outline-o
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── PROJECT SECTIONS ── */
-.project{padding:90px 8%;border-bottom:1px solid #1e1a16;position:relative;overflow:hidden;}
+.project{padding:60px 7%;border-bottom:1px solid #1e1a16;position:relative;overflow:hidden;}
 .project-num{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.22em;color:var(--rust);text-transform:uppercase;margin-bottom:10px;}
-.project-header-wrap{position:relative;padding-bottom:22px;border-bottom:1px solid #2a2420;margin-bottom:38px;}
-.project-header-wrap::before{content:attr(data-num);position:absolute;right:0;top:-20px;font-family:'Bebas Neue',sans-serif;font-size:220px;color:#131008;line-height:1;z-index:0;user-select:none;pointer-events:none;}
+.project-header-wrap{position:relative;padding-bottom:22px;border-bottom:1px solid #2a2420;margin-bottom:24px;}
+.project-header-wrap::before{}
 .project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7.5vw,100px);line-height:0.9;color:var(--paper);position:relative;z-index:1;}
 .project-title .sub{display:block;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(18px,2.5vw,36px);color:var(--gold);letter-spacing:0.02em;margin-top:8px;}
 .project-intro{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:860px;}
@@ -133,19 +133,19 @@ body.edit-mode .img-cell.drag-over{outline:2px dashed var(--edit-blue);outline-o
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px;}
 .tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:5px 11px;border:1px solid #3a3228;color:var(--dust);}
 .tag.accent{background:var(--rust);color:var(--paper);border-color:var(--rust);}
-.collage{margin-top:48px;}
-.strat{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #2a2420;}
-.strat-col{padding:28px 32px;border-right:1px solid #2a2420;}
+.collage{margin-top:28px;}
+.strat{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #2a2420;}
+.strat-col{padding:20px 24px;border-right:1px solid #2a2420;}
 .strat-col:nth-child(even){border-right:none;}
 .strat-col:nth-child(n+3){border-top:1px solid #2a2420;}
 .strat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:12px;}
 .strat-text{font-size:15px;line-height:1.72;color:var(--cream);}
 .strat-text em{color:var(--gold);font-style:italic;}
-.stats{display:flex;gap:0;margin-top:44px;border:1px solid #2a2420;}
-.stat{flex:1;padding:22px 24px;border-right:1px solid #2a2420;}
+
+
 .stat:last-child{border-right:none;}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--gold);line-height:1;}
-.stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dust);margin-top:5px;}
+
+
 .corner-mark{position:absolute;width:20px;height:20px;pointer-events:none;z-index:5;}
 .corner-mark::before,.corner-mark::after{content:'';position:absolute;background:var(--rust);opacity:0.5;}
 .corner-mark.tl{top:16px;left:16px;}
@@ -175,7 +175,7 @@ body.edit-mode .grid-controls{display:flex;}
 .gc-btn.add-img:hover{background:var(--edit-blue);color:var(--paper);}
 
 /* ── UNLIMITIFY MOCK ── */
-.browser-mock{border:1px solid #2a2420;background:#0d0d12;overflow:hidden;margin-top:44px;}
+.browser-mock{border:1px solid #2a2420;background:#0d0d12;overflow:hidden;margin-top:28px;}
 .browser-chrome{background:#131318;padding:9px 14px;border-bottom:1px solid #1e1e28;display:flex;align-items:center;gap:8px;}
 .browser-dot{width:9px;height:9px;border-radius:50%;}
 .browser-bar{flex:1;background:#1a1a20;border-radius:2px;padding:4px 12px;font-family:'DM Mono',monospace;font-size:9px;color:#6a6a80;letter-spacing:0.07em;margin:0 14px;}
@@ -198,7 +198,7 @@ body.edit-mode .grid-controls{display:flex;}
 .mock-footer{font-family:'DM Mono',monospace;font-size:8px;color:#2a2420;letter-spacing:0.1em;text-transform:uppercase;margin-top:32px;}
 
 /* ── FOOTER ── */
-.footer{padding:56px 8%;border-top:1px solid #1e1a16;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer{padding:36px 7%;border-top:1px solid #1e1a16;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
 .footer-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.05em;color:var(--dust);}
 
 /* ── RESPONSIVE ── */
@@ -206,8 +206,8 @@ body.edit-mode .grid-controls{display:flex;}
   .project-intro{grid-template-columns:1fr;}
   .strat{grid-template-columns:1fr;}
   .strat-col{border-right:none !important;border-bottom:1px solid #2a2420;}
-  .stats{flex-wrap:wrap;}
-  .stat{min-width:50%;border-bottom:1px solid #2a2420;}
+  
+  
 }
 @media(max-width:600px){
   .hero-title{font-size:clamp(50px,13vw,72px);}
@@ -234,7 +234,7 @@ body.edit-mode .grid-controls{display:flex;}
    ABOUT — COLLAGE FLOW
 ══════════════════════════════════════════ */
 .about-wrap {
-  padding: 90px 7% 100px;
+  padding:60px 7% 72px;
   background: #0c0a08;
   border-bottom: 1px solid #1e1a16;
   position: relative;
@@ -380,16 +380,13 @@ body.edit-mode .c-photo:hover .c-photo-img::after {
 .torn-sig { font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#8a6040;margin-top:10px; }
 
 /* ── TICKET STACK ── */
-.c-tickets { display:flex;flex-direction:column;gap:6px; }
-.ticket {
-  background:#0f0d0b;border:1px solid #2a2420;border-left:3px solid var(--rust);
-  padding:11px 56px 11px 13px;position:relative;overflow:hidden;
-}
+
+
 .ticket::after { content:'';position:absolute;right:0;top:0;bottom:0;width:50px;border-left:1px dashed #2a2420; }
-.t-role { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);margin-bottom:1px; }
-.t-co   { font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--gold);margin-bottom:5px; }
-.t-desc { font-size:12px;line-height:1.6;color:var(--dust); }
-.t-date { position:absolute;right:4px;top:0;bottom:0;width:46px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:8px;color:var(--dust);letter-spacing:.06em;text-transform:uppercase;text-align:center;line-height:1.7; }
+
+
+
+
 
 /* ── BOTTOM ROW ── */
 .about-bottom {
@@ -413,10 +410,10 @@ body.edit-mode .c-photo:hover .c-photo-img::after {
 .tools-div  { border-top:1px dashed #2a2420;margin-top:10px;padding-top:10px; }
 
 /* circus */
-.c-circus { background:#100e0c;border:1px solid #2a2420;padding:16px;transform:rotate(1.5deg); }
-.circus-star { color:var(--gold);font-size:16px;margin-bottom:6px; }
-.circus-head { font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:8px; }
-.circus-body { font-family:'Crimson Pro',serif;font-style:italic;font-size:12.5px;color:var(--dust);line-height:1.6; }
+
+
+
+
 
 /* skills strip */
 .c-skills {
@@ -494,15 +491,7 @@ body.edit-mode .cell-del { display:flex; }
     <p class="hero-subtitle" data-editable contenteditable="false">
       Strategy designed for real audiences — not mood boards.<br>
       Five brands. Five systems. Built from insight to execution.
-    </p>
-    <div class="hero-badges">
-      <span class="badge" data-editable contenteditable="false">Creative Strategy</span>
-      <span class="badge" data-editable contenteditable="false">Social Media Systems</span>
-      <span class="badge" data-editable contenteditable="false">Brand Identity</span>
-      <span class="badge" data-editable contenteditable="false">Amazon eCommerce</span>
-      <span class="badge" data-editable contenteditable="false">Character Development</span>
-    </div>
-  </div>
+    </p>  </div>
   <div class="marquee-wrap">
     <div class="marquee-track">
       <span>Polvos de Sulpha</span><span class="dot"> ◆ </span>
@@ -580,17 +569,7 @@ body.edit-mode .cell-del { display:flex; }
     <div class="c-torn">
       <p class="torn-q" data-editable contenteditable="false">"I approach brands the same way I approached fieldwork — with curiosity, rigor, and the conviction that people's behavior always tells a story."</p>
       <p class="torn-sig" data-editable contenteditable="false">— research → strategy → execution</p>
-    </div>
-
-    <!-- TICKET STACK -->
-    <div class="c-tickets">
-      <div class="ticket">
-        <div class="t-role" data-editable contenteditable="false">Creative & Social Strategist</div>
-        <div class="t-co" data-editable contenteditable="false">Unlimitify</div>
-        <div class="t-desc" data-editable contenteditable="false">Strategy for 6 brands. 3 mascots into Amazon A+. TikTok Shop 0→1,750 followers. Built unlimitify.com end-to-end.</div>
-        <div class="t-date" data-editable contenteditable="false">Nov 25<br>Now</div>
-      </div>
-      <div class="ticket">
+    </div>      <div class="ticket">
         <div class="t-role" data-editable contenteditable="false">Consulting Sales Associate</div>
         <div class="t-co" data-editable contenteditable="false">Dialectica</div>
         <div class="t-desc" data-editable contenteditable="false">Expert matching, 15+ pro-bono sessions negotiated. Project lead in manager's absence.</div>
@@ -626,8 +605,6 @@ body.edit-mode .cell-del { display:flex; }
         <div class="tools-body" data-editable contenteditable="false">English C2 · Spanish C2 · French A1</div>
       </div>
     </div>
-    <div class="c-circus">
-      <div class="circus-star">✦</div>
       <div class="circus-head" data-editable contenteditable="false">Beyond the desk</div>
       <div class="circus-body" data-editable contenteditable="false">10 years of aerialism — circus arts training that sharpens spatial storytelling and creative discipline. Theater improv certified.</div>
     </div>
@@ -699,12 +676,7 @@ body.edit-mode .cell-del { display:flex; }
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">The Reach</p><p class="strat-text" data-editable contenteditable="false">The character system crossed from social into Amazon A+ imagery — a deliberate extension that unified the brand experience and drove measurable conversion lift.</p></div>
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">Content Pillars</p><p class="strat-text" data-editable contenteditable="false"><em>40%</em> storytelling · <em>30%</em> product use clarity · <em>20%</em> social proof · <em>10%</em> cultural hooks</p></div>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">8→14%</div><div class="stat-label" data-editable contenteditable="false">Amazon CVR lift</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">29+</div><div class="stat-label" data-editable contenteditable="false">Posts published</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">16</div><div class="stat-label" data-editable contenteditable="false">Weeks planned</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">3</div><div class="stat-label" data-editable contenteditable="false">Villain characters</div></div>
-  </div>
+   </div>
 </section>
 
 <!-- ═══════════════ 02 SCOTT'S ═══════════════ -->
@@ -763,12 +735,7 @@ body.edit-mode .cell-del { display:flex; }
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">The System</p><p class="strat-text" data-editable contenteditable="false">30 hooks categorized by trigger: nostalgia, parental conflict, myth-breaking, curiosity. 9 video scripts in native TikTok formats. <em>All ready to deploy.</em></p></div>
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">Visual Identity</p><p class="strat-text" data-editable contenteditable="false">Warm wood tones · natural morning light · short depth of field. <em>Cinematic, never commercial.</em> The fisherman stays in the background — always detail, never protagonist.</p></div>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">$5.7K</div><div class="stat-label" data-editable contenteditable="false">GMV Mar–Apr 2026</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">30</div><div class="stat-label" data-editable contenteditable="false">TikTok hooks written</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">9</div><div class="stat-label" data-editable contenteditable="false">Video scripts ready</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">19</div><div class="stat-label" data-editable contenteditable="false">Posts published</div></div>
-  </div>
+   </div>
 </section>
 
 <!-- ═══════════════ 03 OPAL ═══════════════ -->
@@ -889,12 +856,7 @@ body.edit-mode .cell-del { display:flex; }
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">The Principle</p><p class="strat-text" data-editable contenteditable="false">The Latino consumer doesn't need to be convinced natural remedies work. <em>Be useful before being beautiful.</em> First frame must answer: what is this?</p></div>
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">Language Call</p><p class="strat-text" data-editable contenteditable="false">Content was being produced primarily in English. Recommendation: <em>pivot to Spanish</em> to match the actual audience — Latinos in the U.S. buying in their cultural context.</p></div>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">25+</div><div class="stat-label" data-editable contenteditable="false">Posts published</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">3</div><div class="stat-label" data-editable contenteditable="false">Use cases hierarchized</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">1</div><div class="stat-label" data-editable contenteditable="false">Strategic pivot</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">2</div><div class="stat-label" data-editable contenteditable="false">Active channels</div></div>
-  </div>
+   </div>
 </section>
 
 <!-- ═══════════════ 05 UNLIMITIFY ═══════════════ -->
@@ -944,16 +906,11 @@ body.edit-mode .cell-del { display:flex; }
       <p class="mock-footer" data-editable contenteditable="false">Designed by Unlimitify</p>
     </div>
   </div>
-  <div class="strat" style="margin-top:44px;">
+  <div class="strat" style="margin-top:28px;">
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">The Brief</p><p class="strat-text" data-editable contenteditable="false">Communicate technical credibility and real results to brands that have never exported — without looking like a generic marketing agency. <em>Credibility over cleverness.</em></p></div>
     <div class="strat-col"><p class="strat-label" data-editable contenteditable="false">The Architecture</p><p class="strat-text" data-editable contenteditable="false">Hero with animated brand loop · 6-phase Growth Loop interactive section · Services · Results with scroll-triggered counters. <em>Every section earns the next scroll.</em></p></div>
   </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">50+</div><div class="stat-label" data-editable contenteditable="false">Brands scaled</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">139%</div><div class="stat-label" data-editable contenteditable="false">Revenue surge</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">0→1</div><div class="stat-label" data-editable contenteditable="false">Built from scratch</div></div>
-    <div class="stat"><div class="stat-num" data-editable contenteditable="false">Live</div><div class="stat-label" data-editable contenteditable="false">unlimitify.com</div></div>
-  </div>
+   </div>
 </section>
 
 <!-- FOOTER -->
@@ -968,61 +925,174 @@ body.edit-mode .cell-del { display:flex; }
   </div>
 </footer>
 
+
+
 <script>
-// ═══════════════════════════════════════════
-// EDIT MODE ENGINE
-// ═══════════════════════════════════════════
-let editMode = false;
-let dragSrc = null;
-let pendingImgTarget = null;
+// ══════════════════════════════════════════════
+//  PORTFOLIO EDITOR — clean single implementation
+// ══════════════════════════════════════════════
+let editMode   = false;
+let dragSrc    = null;
 let hasChanges = false;
 
-const body = document.body;
-const editToggle = document.getElementById('edit-toggle');
-const editBar = document.getElementById('edit-bar');
-const fileInput = document.getElementById('file-input');
-const barStatus = document.getElementById('bar-status');
+const body        = document.body;
+const editToggle  = document.getElementById('edit-toggle');
+const mediaInput  = document.getElementById('file-input');  // reuse existing input
+const barStatus   = document.getElementById('bar-status');
 
+// Accept images AND videos
+mediaInput.accept = 'image/*,video/mp4,video/webm,video/ogg';
+
+// ── pending targets ──
+let pendingCell    = null;  // the .img-cell waiting for a file
+let aboutPending   = null;  // 'logo' | 'photo'
+
+// ─────────────────────────────────────────────
+// EDIT MODE TOGGLE
+// ─────────────────────────────────────────────
 function toggleEditMode() {
   editMode = !editMode;
   body.classList.toggle('edit-mode', editMode);
   editToggle.textContent = editMode ? '✓ Done' : '✎ Edit';
   editToggle.classList.toggle('active', editMode);
 
-  // Toggle contenteditable on all [data-editable]
   document.querySelectorAll('[data-editable]').forEach(el => {
     el.contentEditable = editMode ? 'true' : 'false';
   });
 
-  if (!editMode && hasChanges) {
-    showToast('Changes saved to session');
-    hasChanges = false;
-  }
+  // add / remove delete buttons
+  document.querySelectorAll('.img-cell').forEach(cell => {
+    if (editMode) ensureDeleteBtn(cell);
+    else cell.querySelector('.cell-del')?.remove();
+  });
+
+  if (!editMode && hasChanges) { showToast('Changes saved to session'); hasChanges = false; }
 }
 
-// Track changes
+// ─────────────────────────────────────────────
+// TEXT CHANGE TRACKING
+// ─────────────────────────────────────────────
 document.addEventListener('input', e => {
-  if (e.target.hasAttribute('data-editable')) {
-    hasChanges = true;
-    setStatus('Unsaved changes...');
-  }
+  if (e.target.hasAttribute('data-editable')) { hasChanges = true; setStatus('Unsaved changes...'); }
 });
 
-function setStatus(msg, saved) {
+function setStatus(msg, ok) {
   barStatus.textContent = msg;
-  barStatus.className = saved ? 'saved' : '';
+  barStatus.className = ok ? 'saved' : '';
 }
 
-// ═══ DRAG & DROP IMAGES ═══
+// ─────────────────────────────────────────────
+// DELETE BUTTON
+// ─────────────────────────────────────────────
+function ensureDeleteBtn(cell) {
+  if (cell.querySelector('.cell-del')) return;
+  const btn = document.createElement('button');
+  btn.className = 'cell-del';
+  btn.innerHTML = '✕';
+  btn.title = 'Remove cell';
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (confirm('Remove this cell?')) { cell.remove(); hasChanges = true; showToast('Cell removed'); reflow(); }
+  });
+  cell.appendChild(btn);
+}
+
+// ─────────────────────────────────────────────
+// REFLOW — update grid columns after add/remove
+// ─────────────────────────────────────────────
+function reflow(gridEl) {
+  const grids = gridEl ? [gridEl] : document.querySelectorAll('.cg');
+  grids.forEach(g => {
+    const layout = g.dataset.layout || 'auto';
+    applyLayout(g, layout, false);
+  });
+}
+
+// ─────────────────────────────────────────────
+// CLICK TO REPLACE MEDIA
+// ─────────────────────────────────────────────
+document.addEventListener('click', e => {
+  if (!editMode) return;
+  // delete btn handled separately
+  if (e.target.classList.contains('cell-del')) return;
+  // annotation text
+  if (e.target.hasAttribute('data-editable')) return;
+
+  const cell = e.target.closest('.img-cell');
+  if (!cell) return;
+
+  pendingCell = cell;
+  mediaInput.click();
+});
+
+// ─────────────────────────────────────────────
+// FILE INPUT HANDLER (images + videos)
+// ─────────────────────────────────────────────
+mediaInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  // about section photo/logo
+  if (aboutPending) {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      if (aboutPending === 'logo') document.getElementById('about-logo-img').src = ev.target.result;
+      else document.getElementById('about-photo-img').src = ev.target.result;
+      showToast(aboutPending === 'logo' ? 'Logo updated' : 'Photo updated');
+      aboutPending = null;
+    };
+    reader.readAsDataURL(file);
+    mediaInput.value = '';
+    return;
+  }
+
+  if (!pendingCell) return;
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    if (file.type.startsWith('video/')) {
+      // Remove existing img or video
+      pendingCell.querySelectorAll('img, video').forEach(m => m.remove());
+
+      const vid = document.createElement('video');
+      vid.src = ev.target.result;
+      vid.autoplay = true;
+      vid.loop     = true;
+      vid.muted    = true;
+      vid.playsInline = true;
+      vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;';
+      pendingCell.insertBefore(vid, pendingCell.firstChild);
+      // force play (some browsers need explicit call after src set)
+      setTimeout(() => vid.play().catch(() => {}), 100);
+      showToast('Video added');
+    } else {
+      // image
+      let img = pendingCell.querySelector('img');
+      if (!img) { img = document.createElement('img'); pendingCell.insertBefore(img, pendingCell.firstChild); }
+      img.src = ev.target.result;
+      img.alt = 'Uploaded image';
+      showToast('Image updated');
+    }
+
+    hasChanges = true;
+    pendingCell = null;
+    mediaInput.value = '';
+  };
+  reader.readAsDataURL(file);
+});
+
+// ─────────────────────────────────────────────
+// DRAG & DROP SWAP
+// ─────────────────────────────────────────────
 document.addEventListener('dragstart', e => {
   const cell = e.target.closest('.img-cell');
   if (!cell || !editMode) return;
   dragSrc = cell;
-  dragSrc.classList.add('dragging');
+  cell.classList.add('dragging');
   e.dataTransfer.effectAllowed = 'move';
 });
 
-document.addEventListener('dragend', e => {
+document.addEventListener('dragend', () => {
   document.querySelectorAll('.img-cell').forEach(c => c.classList.remove('dragging','drag-over'));
   dragSrc = null;
 });
@@ -1041,105 +1111,132 @@ document.addEventListener('drop', e => {
   const target = e.target.closest('.img-cell');
   if (!target || !dragSrc || target === dragSrc || !editMode) return;
 
-  // Swap images (src only, preserve grid positions)
-  const srcImg = dragSrc.querySelector('img');
-  const tgtImg = target.querySelector('img');
-  if (srcImg && tgtImg) {
-    const tmpSrc = srcImg.src;
-    const tmpAlt = srcImg.alt;
-    srcImg.src = tgtImg.src;
-    srcImg.alt = tgtImg.alt;
-    tgtImg.src = tmpSrc;
-    tgtImg.alt = tmpAlt;
-    showToast('Images swapped');
-    hasChanges = true;
-  }
+  // Swap ALL media (img + video) between cells
+  const srcMedia  = [...dragSrc.querySelectorAll('img,video')];
+  const tgtMedia  = [...target.querySelectorAll('img,video')];
+
+  srcMedia.forEach(m => { const clone = m.cloneNode(true); target.insertBefore(clone, target.firstChild); m.remove(); });
+  tgtMedia.forEach(m => { const clone = m.cloneNode(true); dragSrc.insertBefore(clone, dragSrc.firstChild); m.remove(); });
+
+  // Re-autoplay any videos
+  target.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+  dragSrc.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+
   target.classList.remove('drag-over');
+  showToast('Cells swapped');
+  hasChanges = true;
 });
 
-// ═══ CLICK TO REPLACE IMAGE ═══
-document.addEventListener('click', e => {
-  if (!editMode) return;
-  const cell = e.target.closest('.img-cell');
-  if (cell && !e.target.hasAttribute('data-editable')) {
-    pendingImgTarget = cell.querySelector('img');
-    fileInput.click();
-  }
-});
+// Make cells draggable
+document.querySelectorAll('.img-cell').forEach(c => { c.draggable = true; });
 
-fileInput.addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file || !pendingImgTarget) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    pendingImgTarget.src = ev.target.result;
-    showToast('Image replaced');
-    hasChanges = true;
-    pendingImgTarget = null;
-    fileInput.value = '';
-  };
-  reader.readAsDataURL(file);
-});
-
-// ═══ LAYOUT SWITCHER ═══
-const layouts = {
-  '3col': {cols:'1.5fr 1fr 1fr', rows:'300px 280px'},
-  '2col': {cols:'1fr 1fr', rows:'360px'},
-  '1col': {cols:'1fr', rows:'300px'},
-  'mosaic': {cols:'1.2fr 0.8fr 1fr', rows:'260px 340px'},
+// ─────────────────────────────────────────────
+// LAYOUT SWITCHER
+// ─────────────────────────────────────────────
+const LAYOUTS = {
+  '1col':  { cols:'1fr',              rowH:'300px' },
+  '2col':  { cols:'1fr 1fr',          rowH:'320px' },
+  '3col':  { cols:'1.4fr 1fr 1fr',    rowH:'300px' },
+  'mosaic':{ cols:'1.2fr 0.9fr 1fr',  rowH:'260px' },
 };
+
+function applyLayout(grid, layout, updateBtn) {
+  const n    = grid.querySelectorAll('.img-cell').length;
+  const L    = LAYOUTS[layout] || LAYOUTS['2col'];
+  const cols = layout === 'auto' ? `repeat(auto-fill, minmax(260px, 1fr))` : L.cols;
+
+  // clear all span overrides so cells reflow naturally
+  grid.querySelectorAll('.img-cell').forEach(c => {
+    if (layout !== '3col') {
+      c.style.gridRow = '';
+      c.style.gridColumn = '';
+    }
+    c.style.height = L.rowH;
+  });
+
+  grid.style.gridTemplateColumns = cols;
+  grid.style.gridTemplateRows   = '';   // let rows auto-size
+  grid.dataset.layout = layout;
+
+  if (updateBtn) {
+    const controls = document.querySelector(`.grid-controls[data-grid="${grid.id}"]`);
+    if (controls) {
+      controls.querySelectorAll('.gc-btn:not(.add-img)').forEach(b => b.classList.remove('active'));
+      const map = {'1col':0,'2col':1,'3col':2,'mosaic':3};
+      controls.querySelectorAll('.gc-btn:not(.add-img)')[map[layout]]?.classList.add('active');
+    }
+  }
+}
 
 function setLayout(gridId, layout) {
   const grid = document.getElementById(gridId);
   if (!grid) return;
-  const l = layouts[layout] || layouts['2col'];
-  grid.style.gridTemplateColumns = l.cols;
-  grid.style.gridTemplateRows = l.rows;
-  grid.dataset.layout = layout;
-
-  // Remove span overrides for 1col
-  if (layout === '1col') {
-    grid.querySelectorAll('.img-cell').forEach(c => {
-      c.style.gridRow = '';
-      c.style.gridColumn = '';
-      c.style.height = '300px';
-    });
-  }
-
-  // Update active button
-  const controls = document.querySelector(`.grid-controls[data-grid="${gridId}"]`);
-  if (controls) {
-    controls.querySelectorAll('.gc-btn:not(.add-img)').forEach(b => b.classList.remove('active'));
-    const btns = Array.from(controls.querySelectorAll('.gc-btn:not(.add-img)'));
-    const map = {'3col':0,'2col':1,'1col':2,'mosaic':3};
-    if (btns[map[layout]]) btns[map[layout]].classList.add('active');
-  }
-  showToast('Layout updated');
+  applyLayout(grid, layout, true);
+  showToast('Layout: ' + layout);
   hasChanges = true;
 }
 
+// ─────────────────────────────────────────────
+// ADD MEDIA CELL
+// ─────────────────────────────────────────────
 function addImageToGrid(gridId) {
-  pendingImgTarget = null;
   const grid = document.getElementById(gridId);
-  // Create new cell
+  if (!grid) return;
+
+  // Build placeholder cell
   const cell = document.createElement('div');
   cell.className = 'img-cell';
-  cell.style.height = '280px';
-  cell.dataset.imgId = 'new_' + Date.now();
+  cell.draggable = true;
+  const layout = grid.dataset.layout || '2col';
+  cell.style.height = (LAYOUTS[layout] || LAYOUTS['2col']).rowH;
+
   const img = document.createElement('img');
-  img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%231a1614"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23443830" font-family="monospace" font-size="14"%3EClick to add image%3C/text%3E%3C/svg%3E';
-  img.alt = 'New image';
+  img.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%231a1614'/%3E%3Ctext x='50%25' y='48%25' text-anchor='middle' fill='%23443830' font-family='monospace' font-size='12'%3EClick to add%3C/text%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' fill='%23332a24' font-family='monospace' font-size='10'%3Eimage or video%3C/text%3E%3C/svg%3E`;
+  img.alt = 'New media';
   cell.appendChild(img);
   grid.appendChild(cell);
-  pendingImgTarget = img;
-  fileInput.click();
+
+  if (editMode) ensureDeleteBtn(cell);
+
+  // Immediately open file picker for this new cell
+  pendingCell = cell;
+  mediaInput.click();
+
+  // Reflow columns
+  applyLayout(grid, grid.dataset.layout || '2col', false);
   hasChanges = true;
 }
 
-// ═══ EXPORT ═══
+// ─────────────────────────────────────────────
+// ABOUT SECTION REPLACE
+// ─────────────────────────────────────────────
+const aboutFileEl = document.getElementById('about-file-input');
+
+function aboutReplace(type) {
+  aboutPending = type;
+  aboutFileEl.accept = 'image/*';
+  aboutFileEl.click();
+}
+
+aboutFileEl.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file || !aboutPending) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    if (aboutPending === 'logo') document.getElementById('about-logo-img').src = ev.target.result;
+    else                         document.getElementById('about-photo-img').src = ev.target.result;
+    showToast(aboutPending === 'logo' ? 'Logo updated' : 'Photo updated');
+    aboutPending = null;
+    aboutFileEl.value = '';
+  };
+  reader.readAsDataURL(file);
+});
+
+// ─────────────────────────────────────────────
+// EXPORT / COPY / RESET
+// ─────────────────────────────────────────────
 function saveToFile() {
-  const html = getCleanHTML();
-  const blob = new Blob([html], {type:'text/html'});
+  const blob = new Blob([getCleanHTML()], {type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'index.html';
@@ -1149,178 +1246,35 @@ function saveToFile() {
 }
 
 function copyHTML() {
-  const html = getCleanHTML();
-  navigator.clipboard.writeText(html).then(() => {
-    showToast('HTML copied to clipboard');
-    setStatus('Copied ✓', true);
+  navigator.clipboard.writeText(getCleanHTML()).then(() => {
+    showToast('HTML copied'); setStatus('Copied ✓', true);
   });
 }
 
 function getCleanHTML() {
-  // Clone, remove edit UI, turn off contenteditable
   const clone = document.documentElement.cloneNode(true);
-  clone.querySelector('#edit-bar')?.remove();
-  clone.querySelector('.edit-toggle-float')?.remove();
-  clone.querySelector('#file-input')?.remove();
-  clone.querySelector('#toast')?.remove();
+  ['#edit-bar','.edit-toggle-float','#file-input','#about-file-input','#toast'].forEach(s => clone.querySelector(s)?.remove());
   clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
   clone.querySelectorAll('[data-editable]').forEach(el => el.removeAttribute('data-editable'));
-  clone.querySelector('body')?.classList.remove('edit-mode');
-  // Remove grid controls
+  clone.querySelectorAll('.cell-del').forEach(el => el.remove());
   clone.querySelectorAll('.grid-controls').forEach(el => el.remove());
-  // Remove edit-mode styles
-  const styleEl = clone.querySelector('style');
-  if (styleEl) {
-    let css = styleEl.textContent;
-    // Remove edit-mode specific rules by replacing with empty
-    styleEl.textContent = css;
-  }
+  clone.querySelector('body')?.classList.remove('edit-mode');
   return '<!DOCTYPE html>\n' + clone.outerHTML;
 }
 
 function resetAll() {
-  if (confirm('Reset all changes and reload the original?')) {
-    location.reload();
-  }
+  if (confirm('Reset all changes and reload?')) location.reload();
 }
 
-// ═══ TOAST ═══
+// ─────────────────────────────────────────────
+// TOAST
+// ─────────────────────────────────────────────
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2200);
 }
-
-// ═══ MAKE CELLS DRAGGABLE ═══
-document.querySelectorAll('.img-cell').forEach(cell => {
-  cell.draggable = true;
-});
-
-
-
-
-
-// ── ABOUT REPLACE ──
-const aboutFileInput = document.getElementById('about-file-input');
-let aboutPending = null;
-function aboutReplace(type) {
-  aboutPending = type;
-  aboutFileInput.accept = 'image/*';
-  aboutFileInput.click();
-}
-aboutFileInput.addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    if (aboutPending === 'logo') {
-      document.getElementById('about-logo-img').src = ev.target.result;
-      showToast('Logo updated');
-    } else {
-      document.getElementById('about-photo-img').src = ev.target.result;
-      showToast('Photo updated');
-    }
-    aboutPending = null;
-    aboutFileInput.value = '';
-  };
-  reader.readAsDataURL(file);
-});
-
-// ── ENHANCED FILE INPUT: images AND videos ──
-// Override the existing fileInput to handle both
-const mediaInput = document.getElementById('file-input');
-mediaInput.accept = 'image/*,video/mp4,video/webm,video/mov';
-
-mediaInput.addEventListener('change', e => {
-  const file = e.target.files[0];
-  if (!file || !pendingImgTarget) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    const cell = pendingImgTarget.closest('.img-cell');
-    if (file.type.startsWith('video/')) {
-      // Replace img with video element
-      const vid = document.createElement('video');
-      vid.src = ev.target.result;
-      vid.autoplay = true; vid.loop = true; vid.muted = true;
-      vid.playsInline = true;
-      vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-      // Remove old img, keep annotations
-      const oldImg = cell.querySelector('img');
-      if (oldImg) oldImg.replaceWith(vid);
-      showToast('Video added');
-    } else {
-      pendingImgTarget.src = ev.target.result;
-      showToast('Image replaced');
-    }
-    hasChanges = true;
-    pendingImgTarget = null;
-    mediaInput.value = '';
-  };
-  reader.readAsDataURL(file);
-}, { once: false });
-// Remove old listener by re-assigning (we override below)
-
-// ── DELETE BUTTON on cells ──
-function addDeleteBtn(cell) {
-  if (cell.querySelector('.cell-del')) return;
-  const btn = document.createElement('button');
-  btn.className = 'cell-del';
-  btn.innerHTML = '✕';
-  btn.title = 'Remove this cell';
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    if (confirm('Remove this media cell?')) {
-      cell.remove();
-      hasChanges = true;
-      showToast('Cell removed');
-    }
-  });
-  cell.appendChild(btn);
-}
-
-// Add delete buttons when edit mode turns on
-const origToggle = window.toggleEditMode;
-window.toggleEditMode = function() {
-  origToggle();
-  document.querySelectorAll('.img-cell').forEach(cell => {
-    if (document.body.classList.contains('edit-mode')) {
-      addDeleteBtn(cell);
-    } else {
-      cell.querySelector('.cell-del')?.remove();
-    }
-  });
-};
-
-// Also add on newly added cells
-const origAdd = window.addImageToGrid;
-window.addImageToGrid = function(gridId) {
-  origAdd(gridId);
-  if (document.body.classList.contains('edit-mode')) {
-    setTimeout(() => {
-      document.querySelectorAll('#' + gridId + ' .img-cell:last-child').forEach(addDeleteBtn);
-    }, 100);
-  }
-};
-
-// Re-implement click handler to use mediaInput properly
-document.removeEventListener('click', window._cellClickHandler);
-window._cellClickHandler = function(e) {
-  if (!editMode) return;
-  const cell = e.target.closest('.img-cell');
-  if (cell && !e.target.hasAttribute('data-editable') && !e.target.classList.contains('cell-del')) {
-    pendingImgTarget = cell.querySelector('img') || cell.querySelector('video') || cell;
-    if (!pendingImgTarget || pendingImgTarget === cell) {
-      // Create img placeholder if no media
-      const img = document.createElement('img');
-      cell.appendChild(img);
-      pendingImgTarget = img;
-    }
-    mediaInput.click();
-  }
-};
-document.addEventListener('click', window._cellClickHandler);
-
 </script>
 </body>
 </html>
