@@ -228,394 +228,235 @@ body.edit-mode .grid-controls{display:flex;}
 
 
 
-/* ─────────────────────────────────────────
-   ABOUT — VINTAGE COLLAGE
-───────────────────────────────────────── */
 
-.about-collage-wrap {
-  padding: 90px 6% 110px;
-  position: relative;
-  background: #0d0b08;
+
+/* ══════════════════════════════════════════
+   ABOUT — COLLAGE FLOW
+══════════════════════════════════════════ */
+.about-wrap {
+  padding: 90px 7% 100px;
+  background: #0c0a08;
   border-bottom: 1px solid #1e1a16;
+  position: relative;
   overflow: hidden;
-  min-height: 900px;
+}
+.about-wrap::before {
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background: radial-gradient(ellipse 70% 50% at 30% 70%, rgba(140,100,40,0.04) 0%, transparent 70%);
 }
 
-/* aged paper background texture */
-.about-collage-wrap::before {
-  content:'';
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 40% at 20% 60%, rgba(140,100,40,0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(100,80,40,0.03) 0%, transparent 70%);
-  pointer-events:none;
+/* ── header row ── */
+.about-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 52px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #2a2420;
+  position: relative;
 }
-
-/* section label top left */
-.about-section-label {
-  position:absolute;
-  top:36px; left:6%;
-  font-family:'DM Mono',monospace;
-  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--rust);
-  z-index:2;
-}
-
-/* big ghost number */
-.about-ghost-num {
-  position:absolute;
-  right:4%;top:-30px;
+.about-header::before {
+  content: attr(data-num);
+  position:absolute; right:0; top:-24px;
   font-family:'Bebas Neue',sans-serif;
-  font-size:260px;color:#0f0d0a;
-  line-height:1;user-select:none;pointer-events:none;
-  z-index:0;
+  font-size:200px; color:#111009;
+  line-height:1; user-select:none; pointer-events:none; z-index:0;
+}
+.about-title-block { position:relative;z-index:1; }
+.about-title-block h2 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size: clamp(52px,8vw,110px);
+  line-height: 0.88; color:var(--paper);
+}
+.about-title-block .at-sub {
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:400;
+  font-size:clamp(18px,2.5vw,28px);
+  color:var(--gold);display:block;margin-top:6px;
+}
+.about-eyebrow {
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);
+  margin-bottom:10px;
 }
 
-/* ── PIECE: base class for all collage items ── */
-.piece {
-  position:absolute;
-  z-index:2;
-}
-
-/* ── PHOTO SLOT ── */
-.piece-photo {
-  width:230px;
-  top:70px; left:6%;
-  background:#1a1512;
-  padding:10px 10px 42px;
-  box-shadow: 4px 8px 28px rgba(0,0,0,0.6), 1px 1px 0 #2a2420;
-  transform: rotate(-3deg);
-  transition: transform 0.4s ease;
-  cursor: pointer;
-  z-index:5;
-}
-.piece-photo:hover { transform:rotate(-1deg) scale(1.01); }
-.piece-photo .p-img {
-  width:100%;aspect-ratio:3/4;overflow:hidden;
-  position:relative;
-}
-.piece-photo .p-img img {
-  width:100%;height:100%;object-fit:cover;
-  filter:sepia(18%) contrast(1.06) brightness(0.95);
-  display:block;
-}
-.piece-photo .p-tape {
-  position:absolute;
-  top:-11px;left:50%;transform:translateX(-50%);
-  width:72px;height:22px;
-  background:rgba(201,146,58,0.68);
-  z-index:6;
-}
-.piece-photo .p-tape::after {
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(0,0,0,0.07) 5px,rgba(0,0,0,0.07) 6px);
-}
-.piece-photo .p-caption {
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;
-  text-transform:uppercase;color:#6a5a4a;
-  text-align:center;margin-top:10px;
-}
-body.edit-mode .piece-photo:hover::after {
-  content:'click to replace photo';
-  position:absolute;inset:0 0 32px 0;
-  background:rgba(14,12,10,0.55);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'DM Mono',monospace;font-size:9px;
-  color:var(--edit-blue);letter-spacing:0.1em;text-transform:uppercase;
-}
-
-/* ── LOGO SLOT ── */
-.piece-logo {
-  width:170px;
-  top:72px; left:calc(6% + 250px);
-  background:#161210;
+/* logo slot in header */
+.logo-slot {
+  width:160px; min-height:56px;
   border:1px solid #2a2420;
-  padding:14px 16px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:60px;
-  transform:rotate(1.5deg);
-  cursor:pointer;
-  z-index:4;
+  padding:10px 14px; cursor:pointer;
+  transition:border-color .2s;
+  position:relative;z-index:1;flex-shrink:0;
 }
-.piece-logo img {
-  max-width:140px;max-height:48px;object-fit:contain;filter:none;
-}
-.piece-logo .logo-hint {
+.logo-slot:hover { border-color:var(--gold); }
+.logo-slot img { max-width:140px;max-height:48px;object-fit:contain;filter:none; }
+.logo-hint {
   font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.1em;
-  text-transform:uppercase;color:#3a3228;margin-top:6px;
+  text-transform:uppercase;color:#3a3228;margin-top:5px;
+}
+
+/* ── main collage grid ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 16px;
+  align-items: start;
+}
+
+/* ── POLAROID PHOTO ── */
+.c-photo {
+  grid-row: span 2;
+  background:#1a1512;
+  padding:10px 10px 40px;
+  box-shadow: 4px 8px 24px rgba(0,0,0,.55), 1px 1px 0 #2a2420;
+  transform: rotate(-2.5deg);
+  transition: transform .4s ease;
+  position:relative;
+  cursor:pointer;
+}
+.c-photo:hover { transform:rotate(-0.5deg) scale(1.01); }
+.c-photo-tape {
+  position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+  width:68px; height:20px; background:rgba(201,146,58,.68); z-index:2;
+}
+.c-photo-tape::after {
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(0,0,0,.07) 5px,rgba(0,0,0,.07) 6px);
+}
+.c-photo-img { width:100%;aspect-ratio:3/4;overflow:hidden;position:relative; }
+.c-photo-img img { width:100%;height:100%;object-fit:cover;display:block;filter:sepia(15%) contrast(1.05); }
+.c-photo-cap {
+  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;
+  text-transform:uppercase;color:#6a5a4a;text-align:center;margin-top:10px;
+}
+body.edit-mode .c-photo:hover .c-photo-img::after {
+  content:'↑ click to replace';position:absolute;inset:0;
+  background:rgba(14,12,10,.55);display:flex;align-items:center;justify-content:center;
+  font-family:'DM Mono',monospace;font-size:9px;color:var(--edit-blue);
+  letter-spacing:.1em;text-transform:uppercase;
 }
 
 /* ── NEWSPAPER CLIPPING ── */
-.piece-clipping {
-  width:340px;
+.c-clip {
   background:#ede8dc;
-  padding:18px 20px 22px;
-  box-shadow: 3px 5px 18px rgba(0,0,0,0.5);
-  transform: rotate(1.2deg);
-  z-index:3;
+  padding:18px 20px 20px;
+  box-shadow: 3px 5px 16px rgba(0,0,0,.45);
+  transform: rotate(.8deg);
+  position:relative;grid-column:span 2;
 }
-.piece-clipping::before {
-  content:'';
-  position:absolute;inset:0;
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(0,0,0,0.04) 22px, rgba(0,0,0,0.04) 23px);
-  pointer-events:none;
+.c-clip::before {
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 21px,rgba(0,0,0,.04) 21px,rgba(0,0,0,.04) 22px);
 }
-.clip-rule-top {
-  border-top:3px solid #1a1408;
-  border-bottom:1px solid #1a1408;
-  padding:3px 0;
-  margin-bottom:10px;
-}
-.clip-kicker {
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.16em;
-  text-transform:uppercase;color:#8a6040;
-}
-.clip-headline {
-  font-family:'Playfair Display',serif;
-  font-size:17px;font-weight:700;
-  color:#1a1408;line-height:1.25;
-  margin-bottom:10px;border-bottom:1px solid #c8bfad;padding-bottom:8px;
-}
-.clip-body {
-  font-family:'Crimson Pro',serif;
-  font-size:13.5px;line-height:1.65;
-  color:#2a2010;
-  column-count:2;column-gap:14px;
-}
-
-/* ── TICKETS / EXPERIENCE ── */
-.piece-tickets {
-  width:300px;
-  display:flex;flex-direction:column;gap:6px;
-  z-index:3;
-}
-.ticket {
-  background:#0f0d0b;
-  border:1px solid #2a2420;
-  border-left:3px solid var(--rust);
-  padding:11px 14px 11px 14px;
-  position:relative;
-  overflow:hidden;
-}
-.ticket::after {
-  content:'';
-  position:absolute;right:0;top:0;bottom:0;width:52px;
-  border-left:1px dashed #2a2420;
-}
-.t-role {
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--paper);margin-bottom:1px;
-}
-.t-co {
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:13px;color:var(--gold);margin-bottom:5px;
-}
-.t-desc {
-  font-size:12px;line-height:1.6;color:var(--dust);
-  padding-right:58px;
-}
-.t-date {
-  position:absolute;right:6px;top:0;bottom:0;width:46px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'DM Mono',monospace;font-size:8px;color:var(--dust);
-  letter-spacing:0.06em;text-transform:uppercase;text-align:center;
-  line-height:1.7;
-}
+.clip-rule { border-top:3px solid #1a1408;border-bottom:1px solid #1a1408;padding:2px 0;margin-bottom:10px; }
+.clip-kicker { font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#8a6040; }
+.clip-hed { font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1408;line-height:1.25;margin-bottom:9px;border-bottom:1px solid #c8bfad;padding-bottom:7px; }
+.clip-body { font-family:'Crimson Pro',serif;font-size:13.5px;line-height:1.65;color:#2a2010;column-count:2;column-gap:14px; }
+.clip-p + .clip-p { margin-top:9px; }
 
 /* ── TORN PAPER QUOTE ── */
-.piece-torn {
+.c-torn {
   background:#f0e8d4;
   padding:16px 18px 20px;
+  transform:rotate(-1.8deg);
   position:relative;
-  transform:rotate(-2deg);
-  z-index:4;
-  filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.45));
+  filter:drop-shadow(2px 4px 10px rgba(0,0,0,.4));
+  grid-column:span 2;
+  clip-path: polygon(
+    0% 2%, 3% 0%, 7% 2%, 11% 0%, 15% 2%, 19% 0%, 23% 2%, 27% 0%,
+    31% 2%, 35% 0%, 39% 2%, 43% 0%, 47% 2%, 51% 0%, 55% 2%, 59% 0%,
+    63% 2%, 67% 0%, 71% 2%, 75% 0%, 79% 2%, 83% 0%, 87% 2%, 91% 0%,
+    95% 2%, 99% 0%, 100% 0%, 100% 98%, 97% 100%, 93% 98%, 89% 100%,
+    85% 98%, 81% 100%, 77% 98%, 73% 100%, 69% 98%, 65% 100%, 61% 98%,
+    57% 100%, 53% 98%, 49% 100%, 45% 98%, 41% 100%, 37% 98%, 33% 100%,
+    29% 98%, 25% 100%, 21% 98%, 17% 100%, 13% 98%, 9% 100%, 5% 98%,
+    1% 100%, 0% 100%
+  );
 }
-/* jagged top/bottom edges */
-.piece-torn::before {
-  content:'';position:absolute;
-  top:-8px;left:0;right:0;height:10px;
-  background:
-    radial-gradient(ellipse 12px 10px at 6px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 18px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 30px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 42px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 54px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 66px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 78px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 90px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 102px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 114px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 126px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 138px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 150px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 162px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 174px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 186px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 198px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 210px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 222px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 234px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 246px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 258px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 270px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 282px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 294px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 306px 10px, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 318px 10px, #0d0b08 10px, transparent 11px);
+.torn-q { font-family:'Playfair Display',serif;font-style:italic;font-size:14px;line-height:1.75;color:#2a1e10; }
+.torn-sig { font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#8a6040;margin-top:10px; }
+
+/* ── TICKET STACK ── */
+.c-tickets { display:flex;flex-direction:column;gap:6px; }
+.ticket {
+  background:#0f0d0b;border:1px solid #2a2420;border-left:3px solid var(--rust);
+  padding:11px 56px 11px 13px;position:relative;overflow:hidden;
 }
-.piece-torn::after {
-  content:'';position:absolute;
-  bottom:-8px;left:0;right:0;height:10px;
-  background:
-    radial-gradient(ellipse 12px 10px at 6px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 18px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 30px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 42px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 54px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 66px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 78px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 90px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 102px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 114px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 126px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 138px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 150px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 162px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 174px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 186px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 198px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 210px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 222px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 234px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 246px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 258px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 270px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 282px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 294px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 306px 0, #0d0b08 10px, transparent 11px),
-    radial-gradient(ellipse 12px 10px at 318px 0, #0d0b08 10px, transparent 11px);
-}
-.torn-quote {
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:13.5px;line-height:1.75;color:#2a1e10;
-}
-.torn-sig {
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.12em;
-  text-transform:uppercase;color:#8a6040;margin-top:10px;
+.ticket::after { content:'';position:absolute;right:0;top:0;bottom:0;width:50px;border-left:1px dashed #2a2420; }
+.t-role { font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);margin-bottom:1px; }
+.t-co   { font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--gold);margin-bottom:5px; }
+.t-desc { font-size:12px;line-height:1.6;color:var(--dust); }
+.t-date { position:absolute;right:4px;top:0;bottom:0;width:46px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:8px;color:var(--dust);letter-spacing:.06em;text-transform:uppercase;text-align:center;line-height:1.7; }
+
+/* ── BOTTOM ROW ── */
+.about-bottom {
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px;
 }
 
-/* ── STAMP ── */
-.piece-stamp {
-  width:120px;height:120px;
-  border-radius:50%;
-  border:2px solid var(--rust);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  z-index:4;
-  opacity:0.85;
-}
-.piece-stamp::before {
-  content:'';position:absolute;inset:5px;border-radius:50%;
-  border:1px dashed #3a3228;
-}
-.stamp-inner-text { text-align:center;padding:8px; }
-.stamp-uni { font-family:'DM Mono',monospace;font-size:7px;letter-spacing:0.1em;text-transform:uppercase;color:var(--dust); }
-.stamp-deg { font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--gold);display:block;margin:3px 0; }
-.stamp-yr { font-family:'DM Mono',monospace;font-size:7px;color:var(--rust);letter-spacing:0.06em; }
+/* edu stamp */
+.c-stamp { text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px; }
+.stamp-ring { width:130px;height:130px;border-radius:50%;border:2px solid var(--rust);display:flex;align-items:center;justify-content:center;position:relative; }
+.stamp-ring::after { content:'';position:absolute;inset:5px;border-radius:50%;border:1px dashed #3a3228; }
+.stamp-inner { text-align:center;padding:8px; }
+.s-uni,.s-yr { font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--dust); }
+.s-deg { font-family:'Playfair Display',serif;font-style:italic;font-size:12px;color:var(--gold);display:block;margin:3px 0; }
+.s-yr  { color:var(--rust); }
+.stamp-note { font-family:'Crimson Pro',serif;font-style:italic;font-size:12px;color:var(--dust);line-height:1.5;max-width:160px; }
 
-/* ── LABEL / TAG STRIP ── */
-.piece-tag-strip {
-  display:flex;flex-direction:column;gap:4px;
-  z-index:3;
-}
-.tag-strip-item {
-  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--dust);padding:5px 12px;
-  border:1px solid #2a2420;
-  background:#0e0c0a;
-  white-space:nowrap;
-}
-.tag-strip-item.hi { color:var(--paper);border-color:#3a3228; }
+/* tools box */
+.c-tools { background:var(--dim);border-top:2px solid var(--gold);border:1px solid #2a2420;border-top:2px solid var(--gold);padding:14px 16px; }
+.tools-head { font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:7px; }
+.tools-body { font-family:'DM Mono',monospace;font-size:9px;color:var(--dust);letter-spacing:.04em;line-height:1.9; }
+.tools-div  { border-top:1px dashed #2a2420;margin-top:10px;padding-top:10px; }
 
-/* ── SCRIBBLE CONNECTOR LINES ── */
-.piece-line {
-  position:absolute;
-  background:var(--rust);
-  opacity:0.18;
-  z-index:1;
-  pointer-events:none;
-}
-
-/* ── TITLE PIECE ── */
-.piece-title {
-  z-index:6;
-}
-.piece-title h2 {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(56px,7vw,100px);
-  line-height:0.88;
-  color:var(--paper);
-  letter-spacing:-0.01em;
-}
-.piece-title .t-sub {
-  font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
-  font-size:clamp(16px,2vw,24px);color:var(--gold);
-  display:block;margin-top:6px;margin-left:4px;
-}
-
-/* ── CIRCUS BADGE ── */
-.piece-circus {
-  background:#100e0c;
-  border:1px solid #2a2420;
-  padding:14px 16px;
-  width:180px;
-  position:relative;
-  z-index:4;
-  transform:rotate(2deg);
-}
+/* circus */
+.c-circus { background:#100e0c;border:1px solid #2a2420;padding:16px;transform:rotate(1.5deg); }
 .circus-star { color:var(--gold);font-size:16px;margin-bottom:6px; }
-.circus-head {
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--rust);margin-bottom:8px;
+.circus-head { font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:8px; }
+.circus-body { font-family:'Crimson Pro',serif;font-style:italic;font-size:12.5px;color:var(--dust);line-height:1.6; }
+
+/* skills strip */
+.c-skills {
+  display:flex;flex-direction:column;gap:4px;
+  grid-column:1; /* stays left */
 }
-.circus-body {
-  font-family:'Crimson Pro',serif;font-style:italic;font-size:12.5px;
-  color:var(--dust);line-height:1.6;
+.skill-item {
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dust);padding:5px 11px;
+  border:1px solid #2a2420;background:#0e0c0a;white-space:nowrap;
+}
+.skill-item.hi { color:var(--paper);border-color:#3a3228; }
+
+@media(max-width:900px){
+  .about-grid { grid-template-columns:1fr 1fr; }
+  .c-photo { grid-row:auto; }
+  .c-clip,.c-torn { grid-column:auto; }
+  .about-bottom { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px){
+  .about-grid { grid-template-columns:1fr; }
+  .about-bottom { grid-template-columns:1fr; }
+  .c-photo { max-width:260px;margin:0 auto; }
+  .c-clip .clip-body { column-count:1; }
 }
 
-/* ── TOOLS TAPE ── */
-.piece-tools {
-  background:#131110;
-  border-top:2px solid var(--gold);
-  padding:12px 16px;
-  z-index:3;
+/* ── CELL DELETE BUTTON ── */
+.cell-del {
+  position:absolute;top:6px;right:6px;z-index:20;
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(184,74,46,0.9);color:white;
+  border:none;font-size:10px;cursor:pointer;
+  display:none;align-items:center;justify-content:center;
+  line-height:1;
 }
-.tools-head {
-  font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:7px;
-}
-.tools-body {
-  font-family:'DM Mono',monospace;font-size:9px;color:var(--dust);
-  letter-spacing:0.05em;line-height:1.9;
-}
+body.edit-mode .cell-del { display:flex; }
+.cell-del:hover { background:#d4502e;transform:scale(1.1); }
 
-/* ── SPACER so collage doesn't overflow into next section ── */
-.about-collage-spacer { height: 860px; }
-
-/* responsive fallback — stack on small screens */
-@media(max-width:860px){
-  .about-collage-wrap { min-height:auto; overflow:visible; }
-  .piece { position:relative !important;
-    top:auto !important;left:auto !important;right:auto !important;bottom:auto !important;
-    transform:none !important;
-    width:100% !important;
-    margin-bottom:16px;display:block;
-  }
-  .piece-photo { width:240px !important;margin:0 auto; }
-  .about-collage-spacer { display:none; }
-}
+/* update grid controls hint */
+.gc-btn.add-img::before { content:'+ '; }
 
 </style>
 </head>
@@ -680,120 +521,117 @@ body.edit-mode .piece-photo:hover::after {
 
 
 
+
 <!-- ═══════════════ ABOUT ═══════════════ -->
-<section class="about-collage-wrap">
-
-  <p class="about-section-label" data-editable contenteditable="false">00 — About</p>
-  <div class="about-ghost-num">00</div>
-
-  <!-- hidden file input for this section -->
+<section class="about-wrap">
   <input type="file" id="about-file-input" accept="image/*" style="display:none">
 
-  <!-- SCRIBBLE LINES (decoration) -->
-  <div class="piece-line" style="width:1px;height:180px;top:160px;left:calc(6% + 232px);transform:rotate(8deg);"></div>
-  <div class="piece-line" style="width:140px;height:1px;top:540px;left:calc(6% + 230px);transform:rotate(-3deg);"></div>
-  <div class="piece-line" style="width:1px;height:120px;top:200px;right:calc(6% + 160px);transform:rotate(-5deg);opacity:0.1;"></div>
-
-  <!-- ① TITLE — top center -->
-  <div class="piece piece-title" style="top:64px;left:calc(6% + 260px);">
-    <h2>THE MIND<br>BEHIND IT<span class="t-sub" data-editable contenteditable="false">Sociologist · Historian · Strategist</span></h2>
-  </div>
-
-  <!-- ② PHOTO — left column, prominent -->
-  <div class="piece piece-photo" id="about-photo-piece" onclick="aboutReplaceImg('photo')">
-    <div class="p-tape"></div>
-    <div class="p-img">
-      <img id="about-photo-img"
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 300'%3E%3Crect width='230' height='300' fill='%231a1614'/%3E%3Ctext x='50%25' y='48%25' text-anchor='middle' fill='%23443830' font-family='monospace' font-size='11'%3EYour photo%3C/text%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' fill='%233a3028' font-family='monospace' font-size='10'%3Eclick to upload%3C/text%3E%3C/svg%3E"
-        alt="Profile photo">
+  <!-- HEADER -->
+  <div class="about-header" data-num="00">
+    <div class="about-title-block">
+      <p class="about-eyebrow" data-editable contenteditable="false">00 — About</p>
+      <h2>THE MIND<br>BEHIND IT<span class="at-sub" data-editable contenteditable="false">Sociologist · Historian · Strategist</span></h2>
     </div>
-    <p class="p-caption" data-editable contenteditable="false">Creative Strategist · Bogotá</p>
-  </div>
-
-  <!-- ③ LOGO — top left, above photo -->
-  <div class="piece piece-logo" id="about-logo-piece" onclick="aboutReplaceImg('logo')">
-    <img id="about-logo-img"
-      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 50'%3E%3Crect width='160' height='50' fill='%23161210'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%234a3e34' font-family='monospace' font-size='10'%3EYour Logo%3C/text%3E%3C/svg%3E"
-      alt="Personal logo">
-    <span class="logo-hint">click to upload logo</span>
-  </div>
-
-  <!-- ④ NEWSPAPER CLIPPING — center -->
-  <div class="piece piece-clipping" style="top:220px;left:calc(6% + 260px);">
-    <div class="clip-rule-top">
-      <span class="clip-kicker" data-editable contenteditable="false">Profile · Creative Strategy</span>
-    </div>
-    <p class="clip-headline" data-editable contenteditable="false">Where social science meets brand strategy</p>
-    <div class="clip-body">
-      <p data-editable contenteditable="false">Sociologist and historian by training, strategist by practice. I combine academic rigor with hands-on brand building — developing identities, content systems, and consumer insights that connect with real audiences.</p>
-      <p style="margin-top:10px;" data-editable contenteditable="false">The same methods I used to map community dynamics and trace historical narratives, I now apply to understanding why people buy — and what makes a brand worth remembering.</p>
+    <!-- LOGO SLOT -->
+    <div class="logo-slot" id="about-logo-slot" onclick="aboutReplace('logo')">
+      <img id="about-logo-img"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 50'%3E%3Crect width='160' height='50' fill='%23161210'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%234a3e34' font-family='monospace' font-size='10'%3EYour Logo%3C/text%3E%3C/svg%3E"
+        alt="Logo">
+      <span class="logo-hint">click to upload logo</span>
     </div>
   </div>
 
-  <!-- ⑤ TORN PAPER QUOTE — overlapping clipping, right side -->
-  <div class="piece piece-torn" style="top:158px;right:6%;width:280px;">
-    <p class="torn-quote" data-editable contenteditable="false">"I approach brands the same way I approached fieldwork — with curiosity, rigor, and the conviction that people's behavior always tells a story."</p>
-    <p class="torn-sig" data-editable contenteditable="false">— research → strategy → execution</p>
-  </div>
+  <!-- MAIN COLLAGE GRID -->
+  <div class="about-grid">
 
-  <!-- ⑥ EXPERIENCE TICKETS — right column -->
-  <div class="piece piece-tickets" style="top:370px;right:6%;">
-    <div class="ticket">
-      <div class="t-role" data-editable contenteditable="false">Creative & Social Strategist</div>
-      <div class="t-co" data-editable contenteditable="false">Unlimitify</div>
-      <div class="t-desc" data-editable contenteditable="false">Strategy for 6 brands. 3 mascots adopted into Amazon A+. TikTok Shop 0→1,750 followers. Built unlimitify.com end-to-end.</div>
-      <div class="t-date" data-editable contenteditable="false">Nov 25<br>Now</div>
+    <!-- PHOTO — left, tall -->
+    <div class="c-photo" onclick="aboutReplace('photo')">
+      <div class="c-photo-tape"></div>
+      <div class="c-photo-img">
+        <img id="about-photo-img"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 300'%3E%3Crect width='230' height='300' fill='%231a1614'/%3E%3Ctext x='50%25' y='47%25' text-anchor='middle' fill='%23443830' font-family='monospace' font-size='11'%3EYour photo%3C/text%3E%3Ctext x='50%25' y='57%25' text-anchor='middle' fill='%233a3028' font-family='monospace' font-size='10'%3Eclick to upload%3C/text%3E%3C/svg%3E"
+          alt="Profile photo">
+      </div>
+      <p class="c-photo-cap" data-editable contenteditable="false">Creative Strategist · Bogotá</p>
     </div>
-    <div class="ticket">
-      <div class="t-role" data-editable contenteditable="false">Consulting Sales Associate</div>
-      <div class="t-co" data-editable contenteditable="false">Dialectica</div>
-      <div class="t-desc" data-editable contenteditable="false">Expert matching, 15+ pro-bono sessions negotiated. Project lead in manager's absence.</div>
-      <div class="t-date" data-editable contenteditable="false">Nov 24<br>Nov 25</div>
+
+    <!-- NEWSPAPER CLIPPING -->
+    <div class="c-clip">
+      <div class="clip-rule"><span class="clip-kicker" data-editable contenteditable="false">Profile · Creative Strategy</span></div>
+      <p class="clip-hed" data-editable contenteditable="false">Where social science meets brand strategy</p>
+      <div class="clip-body">
+        <p class="clip-p" data-editable contenteditable="false">Sociologist and historian by training, strategist by practice. I combine analytical thinking with creative direction — developing brand identities, content strategies, and consumer insights that connect with real audiences.</p>
+        <p class="clip-p" data-editable contenteditable="false">The same methods I used to map community dynamics and trace historical narratives, I now apply to understanding why people buy — and what makes a brand worth remembering.</p>
+      </div>
     </div>
-    <div class="ticket">
-      <div class="t-role" data-editable contenteditable="false">Research · Digital · Support</div>
-      <div class="t-co" data-editable contenteditable="false">FLIP · NMQ · Concentrix</div>
-      <div class="t-desc" data-editable contenteditable="false">Media research, web content, community fieldwork, technical support in English.</div>
-      <div class="t-date" data-editable contenteditable="false">2021<br>2024</div>
+
+    <!-- SKILLS STRIP -->
+    <div class="c-skills">
+      <div class="skill-item hi" data-editable contenteditable="false">Creative Strategy</div>
+      <div class="skill-item" data-editable contenteditable="false">Consumer Insights</div>
+      <div class="skill-item" data-editable contenteditable="false">Brand Identity</div>
+      <div class="skill-item" data-editable contenteditable="false">Content Systems</div>
+      <div class="skill-item" data-editable contenteditable="false">Qualitative Research</div>
+      <div class="skill-item" data-editable contenteditable="false">Copywriting</div>
+      <div class="skill-item" data-editable contenteditable="false">Sales & Negotiation</div>
+    </div>
+
+    <!-- TORN PAPER QUOTE -->
+    <div class="c-torn">
+      <p class="torn-q" data-editable contenteditable="false">"I approach brands the same way I approached fieldwork — with curiosity, rigor, and the conviction that people's behavior always tells a story."</p>
+      <p class="torn-sig" data-editable contenteditable="false">— research → strategy → execution</p>
+    </div>
+
+    <!-- TICKET STACK -->
+    <div class="c-tickets">
+      <div class="ticket">
+        <div class="t-role" data-editable contenteditable="false">Creative & Social Strategist</div>
+        <div class="t-co" data-editable contenteditable="false">Unlimitify</div>
+        <div class="t-desc" data-editable contenteditable="false">Strategy for 6 brands. 3 mascots into Amazon A+. TikTok Shop 0→1,750 followers. Built unlimitify.com end-to-end.</div>
+        <div class="t-date" data-editable contenteditable="false">Nov 25<br>Now</div>
+      </div>
+      <div class="ticket">
+        <div class="t-role" data-editable contenteditable="false">Consulting Sales Associate</div>
+        <div class="t-co" data-editable contenteditable="false">Dialectica</div>
+        <div class="t-desc" data-editable contenteditable="false">Expert matching, 15+ pro-bono sessions negotiated. Project lead in manager's absence.</div>
+        <div class="t-date" data-editable contenteditable="false">Nov 24<br>Nov 25</div>
+      </div>
+      <div class="ticket" style="border-style:dashed;border-left-style:solid;">
+        <div class="t-role" data-editable contenteditable="false">Research · Digital · Support</div>
+        <div class="t-co" data-editable contenteditable="false">FLIP · NMQ · Concentrix</div>
+        <div class="t-desc" data-editable contenteditable="false">Media research, web content, community fieldwork, technical support in English.</div>
+        <div class="t-date" data-editable contenteditable="false">2021<br>2024</div>
+      </div>
+    </div>
+
+  </div><!-- /about-grid -->
+
+  <!-- BOTTOM ROW -->
+  <div class="about-bottom">
+    <div class="c-stamp">
+      <div class="stamp-ring">
+        <div class="stamp-inner">
+          <div class="s-uni" data-editable contenteditable="false">Javeriana</div>
+          <span class="s-deg" data-editable contenteditable="false">Sociology<br>& History</span>
+          <div class="s-yr" data-editable contenteditable="false">2017–2023</div>
+        </div>
+      </div>
+      <p class="stamp-note" data-editable contenteditable="false">Two B.A. degrees — one question: why do people do what they do?</p>
+    </div>
+    <div class="c-tools">
+      <div class="tools-head">Tools</div>
+      <div class="tools-body" data-editable contenteditable="false">Canva · CapCut · Helium 10 · TikTok Shop · Metricool · Meta Business Suite · Claude · ChatGPT · HTML · Excel · Lovable</div>
+      <div class="tools-div">
+        <div class="tools-head">Languages</div>
+        <div class="tools-body" data-editable contenteditable="false">English C2 · Spanish C2 · French A1</div>
+      </div>
+    </div>
+    <div class="c-circus">
+      <div class="circus-star">✦</div>
+      <div class="circus-head" data-editable contenteditable="false">Beyond the desk</div>
+      <div class="circus-body" data-editable contenteditable="false">10 years of aerialism — circus arts training that sharpens spatial storytelling and creative discipline. Theater improv certified.</div>
     </div>
   </div>
-
-  <!-- ⑦ SKILLS TAG STRIP — below photo -->
-  <div class="piece piece-tag-strip" style="top:520px;left:6%;width:210px;">
-    <div class="tag-strip-item hi" data-editable contenteditable="false">Creative Strategy</div>
-    <div class="tag-strip-item" data-editable contenteditable="false">Consumer Insights</div>
-    <div class="tag-strip-item" data-editable contenteditable="false">Brand Identity</div>
-    <div class="tag-strip-item" data-editable contenteditable="false">Content Systems</div>
-    <div class="tag-strip-item" data-editable contenteditable="false">Qualitative Research</div>
-    <div class="tag-strip-item" data-editable contenteditable="false">Copywriting</div>
-    <div class="tag-strip-item" data-editable contenteditable="false">Sales & Negotiation</div>
-  </div>
-
-  <!-- ⑧ EDU STAMP — center bottom -->
-  <div class="piece piece-stamp" style="bottom:80px;left:calc(6% + 240px);">
-    <div class="stamp-inner-text">
-      <div class="stamp-uni" data-editable contenteditable="false">Javeriana</div>
-      <span class="stamp-deg" data-editable contenteditable="false">Sociology<br>& History</span>
-      <div class="stamp-yr" data-editable contenteditable="false">2017–2023</div>
-    </div>
-  </div>
-
-  <!-- ⑨ TOOLS — center bottom -->
-  <div class="piece piece-tools" style="bottom:64px;left:calc(6% + 390px);width:260px;transform:rotate(-0.5deg);">
-    <div class="tools-head">Tools & Languages</div>
-    <div class="tools-body" data-editable contenteditable="false">Canva · CapCut · Helium 10 · TikTok Shop · Metricool · Meta BS · Claude · ChatGPT · HTML · Excel</div>
-    <div class="tools-body" style="margin-top:8px;border-top:1px dashed #2a2420;padding-top:8px;" data-editable contenteditable="false">EN C2 · ES C2 · FR A1</div>
-  </div>
-
-  <!-- ⑩ CIRCUS BADGE — bottom right -->
-  <div class="piece piece-circus" style="bottom:64px;right:6%;">
-    <div class="circus-star">✦</div>
-    <div class="circus-head" data-editable contenteditable="false">Beyond the desk</div>
-    <div class="circus-body" data-editable contenteditable="false">10 years aerialism — spatial storytelling & creative discipline. Theater improv certified.</div>
-  </div>
-
-  <!-- spacer keeps section height -->
-  <div class="about-collage-spacer"></div>
 
 </section>
 
@@ -1361,29 +1199,127 @@ document.querySelectorAll('.img-cell').forEach(cell => {
 
 
 
-// ── ABOUT PHOTO / LOGO REPLACE ──
-const aboutFileInput = document.getElementById('about-file-input');
-let aboutPendingTarget = null;
 
-function aboutReplaceImg(type) {
-  aboutPendingTarget = type === 'logo'
-    ? document.getElementById('about-logo-img')
-    : document.getElementById('about-photo-img');
+
+// ── ABOUT REPLACE ──
+const aboutFileInput = document.getElementById('about-file-input');
+let aboutPending = null;
+function aboutReplace(type) {
+  aboutPending = type;
+  aboutFileInput.accept = 'image/*';
   aboutFileInput.click();
 }
-
 aboutFileInput.addEventListener('change', e => {
   const file = e.target.files[0];
-  if (!file || !aboutPendingTarget) return;
+  if (!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
-    aboutPendingTarget.src = ev.target.result;
-    showToast(aboutPendingTarget.id.includes('logo') ? 'Logo updated' : 'Photo updated');
-    aboutPendingTarget = null;
+    if (aboutPending === 'logo') {
+      document.getElementById('about-logo-img').src = ev.target.result;
+      showToast('Logo updated');
+    } else {
+      document.getElementById('about-photo-img').src = ev.target.result;
+      showToast('Photo updated');
+    }
+    aboutPending = null;
     aboutFileInput.value = '';
   };
   reader.readAsDataURL(file);
 });
+
+// ── ENHANCED FILE INPUT: images AND videos ──
+// Override the existing fileInput to handle both
+const mediaInput = document.getElementById('file-input');
+mediaInput.accept = 'image/*,video/mp4,video/webm,video/mov';
+
+mediaInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file || !pendingImgTarget) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const cell = pendingImgTarget.closest('.img-cell');
+    if (file.type.startsWith('video/')) {
+      // Replace img with video element
+      const vid = document.createElement('video');
+      vid.src = ev.target.result;
+      vid.autoplay = true; vid.loop = true; vid.muted = true;
+      vid.playsInline = true;
+      vid.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+      // Remove old img, keep annotations
+      const oldImg = cell.querySelector('img');
+      if (oldImg) oldImg.replaceWith(vid);
+      showToast('Video added');
+    } else {
+      pendingImgTarget.src = ev.target.result;
+      showToast('Image replaced');
+    }
+    hasChanges = true;
+    pendingImgTarget = null;
+    mediaInput.value = '';
+  };
+  reader.readAsDataURL(file);
+}, { once: false });
+// Remove old listener by re-assigning (we override below)
+
+// ── DELETE BUTTON on cells ──
+function addDeleteBtn(cell) {
+  if (cell.querySelector('.cell-del')) return;
+  const btn = document.createElement('button');
+  btn.className = 'cell-del';
+  btn.innerHTML = '✕';
+  btn.title = 'Remove this cell';
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (confirm('Remove this media cell?')) {
+      cell.remove();
+      hasChanges = true;
+      showToast('Cell removed');
+    }
+  });
+  cell.appendChild(btn);
+}
+
+// Add delete buttons when edit mode turns on
+const origToggle = window.toggleEditMode;
+window.toggleEditMode = function() {
+  origToggle();
+  document.querySelectorAll('.img-cell').forEach(cell => {
+    if (document.body.classList.contains('edit-mode')) {
+      addDeleteBtn(cell);
+    } else {
+      cell.querySelector('.cell-del')?.remove();
+    }
+  });
+};
+
+// Also add on newly added cells
+const origAdd = window.addImageToGrid;
+window.addImageToGrid = function(gridId) {
+  origAdd(gridId);
+  if (document.body.classList.contains('edit-mode')) {
+    setTimeout(() => {
+      document.querySelectorAll('#' + gridId + ' .img-cell:last-child').forEach(addDeleteBtn);
+    }, 100);
+  }
+};
+
+// Re-implement click handler to use mediaInput properly
+document.removeEventListener('click', window._cellClickHandler);
+window._cellClickHandler = function(e) {
+  if (!editMode) return;
+  const cell = e.target.closest('.img-cell');
+  if (cell && !e.target.hasAttribute('data-editable') && !e.target.classList.contains('cell-del')) {
+    pendingImgTarget = cell.querySelector('img') || cell.querySelector('video') || cell;
+    if (!pendingImgTarget || pendingImgTarget === cell) {
+      // Create img placeholder if no media
+      const img = document.createElement('img');
+      cell.appendChild(img);
+      pendingImgTarget = img;
+    }
+    mediaInput.click();
+  }
+};
+document.addEventListener('click', window._cellClickHandler);
 
 </script>
 </body>
